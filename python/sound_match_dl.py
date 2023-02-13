@@ -12,7 +12,7 @@ def runMLP(synth_path, synth_state='./synth_params/dexed_simple_fm.json'):
     # MLP feature extractor with a modifying function that flattens the time slice arrays at the end of the feature
     # extraction pipeline
     mlp_extractor = spgl.features.MFCC(num_mfccs=13, time_major=True, hop_size=1024, scale=True)
-    mlp_extractor.load_scaler('./data_simple_fm_mfcc/data_scaler.pkl')
+    mlp_extractor.load_scaler('./data_simple_FM_mfcc/data_scaler.pkl')
     mlp_extractor.add_modifier(lambda data : data.flatten(), type='output')
     mlp_matcher = spgl.SoundMatch(synth, mlp, mlp_extractor)
 
@@ -31,7 +31,7 @@ def runLSTM(synth_path, synth_state='./synth_params/dexed_simple_fm.json'):
 
     # LSTM & LSTM++ feature extractor -- time series of MFCC frames
     lstm_extractor = spgl.features.MFCC(num_mfccs=13, time_major=True, hop_size=1024, scale=True)
-    lstm_extractor.load_scaler('./data_simple_fm_mfcc/data_scaler.pkl')
+    lstm_extractor.load_scaler('./data_simple_FM_mfcc/data_scaler.pkl')
     lstm_matcher = spgl.SoundMatch(synth, lstm, lstm_extractor)
 
     targets = spgl.AudioBuffer.load_folder('./evaluation/audio')
@@ -49,7 +49,7 @@ def runLSTMPlusPlus(synth_path, synth_state='./synth_params/dexed_simple_fm.json
 
     # LSTM & LSTM++ feature extractor -- time series of MFCC frames
     lstm_extractor = spgl.features.MFCC(num_mfccs=13, time_major=True, hop_size=1024, scale=True)
-    lstm_extractor.load_scaler('./data_simple_fm_mfcc/data_scaler.pkl')
+    lstm_extractor.load_scaler('./data_simple_FM_mfcc/data_scaler.pkl')
     bi_lstm_matcher = spgl.SoundMatch(synth, bi_lstm, lstm_extractor)
 
     targets = spgl.AudioBuffer.load_folder('./evaluation/audio')

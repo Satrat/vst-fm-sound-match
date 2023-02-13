@@ -5,7 +5,7 @@ from sound_match_genetic import runGeneticAlgBasic, runGeneticAlgNSGA
 from sound_match_dl import runMLP, runLSTM, runLSTMPlusPlus
 from evaluation import evaluate
 
-synth_path = "/Library/Audio/Plug-Ins/Components/Dexed.component"
+synth_path = "/home/ubuntu/spiegelib_tests/Dexed.so"
 synth_state = "./synth_params/dexed_simple_fm.json"
 
 # dataset generation MFCC

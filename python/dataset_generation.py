@@ -9,8 +9,8 @@ def generateDatasetMFCC(synth_path, synth_state='./synth_params/dexed_simple_fm.
                                   output_folder="./data_simple_FM_mfcc",
                                   scale=True)
 
-    generator.generate(10000, file_prefix="train_")
-    generator.generate(1000, file_prefix="test_")
+    generator.generate(50000, file_prefix="train_")
+    generator.generate(10000, file_prefix="test_")
     generator.save_scaler('data_scaler.pkl')
 
     return features

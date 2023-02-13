@@ -9,7 +9,6 @@ def evaluate():
     estimations = [spgl.AudioBuffer.load_folder('./evaluation/mlp'),
                 spgl.AudioBuffer.load_folder('./evaluation/lstm'),
                 spgl.AudioBuffer.load_folder('./evaluation/bi_lstm'),
-                spgl.AudioBuffer.load_folder('./evaluation/cnn'),
                 spgl.AudioBuffer.load_folder('./evaluation/ga'),
                 spgl.AudioBuffer.load_folder('./evaluation/nsga')]
 
