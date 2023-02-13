@@ -1,6 +1,33 @@
 import spiegelib as spgl
 
-def configSynth(synth_path, synth_state="./synth_params/dexed_simple_fm.json"):
+def configWTSynth(synth_path, synth_state):
+    synth = spgl.synth.SynthVST(synth_path, note_length_secs=1.0, render_length_secs=1.0)
+    synth.save_state("./synth_params_camomile/wt_synth_init.json")
+
+    # turn off LFO and misc unneeded params
+    overridden_parameters = [
+        (5, 0.478), # bpm Fix to 120
+        (6, 0.0), # clipDist none
+        (27, 0.0), # pitchTrack none
+        (22, 0.0), #levelPinkNoise no noise
+        (25, 0.5), #masterVol midpoint
+        (2, 0.0), # ampMod no amplitude modulation
+        (10, 0.5), # filterAmmLFO1 filter at 0Hz
+        (16, 0.0), # freqLFO1 none 
+        (17, 0.0), # freqLFO2 none
+        (30, 0.0), # wave1ModAmm none
+        (31, 0.0), # wave2ModAmm none
+        (32, 0.0), # wave3ModAmm none
+        (33, 0.0), # waveLFO1 default wave
+        (34, 0.0) # waveLFO2 default wave
+    ]
+
+    # Set overridden parameters in synth
+    synth.set_overridden_parameters(overridden_parameters)
+    synth.save_state(synth_state)
+
+
+def configDexed(synth_path, synth_state="./synth_params/dexed_simple_fm.json"):
     synth = spgl.synth.SynthVST(synth_path, note_length_secs=1.0, render_length_secs=1.0)
     synth.save_state("./synth_params/dexed_simple_fm_init.json")
 

@@ -1,0 +1,248 @@
+{
+ "0": {
+  "desc": "ampAttack",
+  "id": 0,
+  "overridden": false,
+  "value": 0.0
+ },
+ "1": {
+  "desc": "ampDecay",
+  "id": 1,
+  "overridden": false,
+  "value": 0.0
+ },
+ "2": {
+  "desc": "ampMod",
+  "id": 2,
+  "overridden": true,
+  "value": 0.0
+ },
+ "3": {
+  "desc": "ampRelease",
+  "id": 3,
+  "overridden": false,
+  "value": 0.0
+ },
+ "4": {
+  "desc": "ampSustain",
+  "id": 4,
+  "overridden": false,
+  "value": 0.0
+ },
+ "5": {
+  "desc": "bpm",
+  "id": 5,
+  "overridden": true,
+  "value": 0.478
+ },
+ "6": {
+  "desc": "clipDist",
+  "id": 6,
+  "overridden": true,
+  "value": 0.0
+ },
+ "7": {
+  "desc": "detuneOsc2",
+  "id": 7,
+  "overridden": false,
+  "value": 0.0
+ },
+ "8": {
+  "desc": "detuneOsc3",
+  "id": 8,
+  "overridden": false,
+  "value": 0.0
+ },
+ "9": {
+  "desc": "driftOsc",
+  "id": 9,
+  "overridden": false,
+  "value": 0.0
+ },
+ "10": {
+  "desc": "filterAmmLFO1",
+  "id": 10,
+  "overridden": true,
+  "value": 0.5
+ },
+ "11": {
+  "desc": "filterAttack",
+  "id": 11,
+  "overridden": false,
+  "value": 0.0
+ },
+ "12": {
+  "desc": "filterDecay",
+  "id": 12,
+  "overridden": false,
+  "value": 0.0
+ },
+ "13": {
+  "desc": "filterEnvAmm",
+  "id": 13,
+  "overridden": false,
+  "value": 0.0
+ },
+ "14": {
+  "desc": "filterRelease",
+  "id": 14,
+  "overridden": false,
+  "value": 0.0
+ },
+ "15": {
+  "desc": "filterSustain",
+  "id": 15,
+  "overridden": false,
+  "value": 0.0
+ },
+ "16": {
+  "desc": "freqLFO1",
+  "id": 16,
+  "overridden": true,
+  "value": 0.0
+ },
+ "17": {
+  "desc": "freqLFO2",
+  "id": 17,
+  "overridden": true,
+  "value": 0.0
+ },
+ "18": {
+  "desc": "hiPassCutoff",
+  "id": 18,
+  "overridden": false,
+  "value": 0.0
+ },
+ "19": {
+  "desc": "levelOsc1",
+  "id": 19,
+  "overridden": false,
+  "value": 0.0
+ },
+ "20": {
+  "desc": "levelOsc2",
+  "id": 20,
+  "overridden": false,
+  "value": 0.0
+ },
+ "21": {
+  "desc": "levelOsc3",
+  "id": 21,
+  "overridden": false,
+  "value": 0.0
+ },
+ "22": {
+  "desc": "levelPinkNoise",
+  "id": 22,
+  "overridden": true,
+  "value": 0.0
+ },
+ "23": {
+  "desc": "loPassCutoff",
+  "id": 23,
+  "overridden": false,
+  "value": 0.0
+ },
+ "24": {
+  "desc": "loPassQ",
+  "id": 24,
+  "overridden": false,
+  "value": 0.0
+ },
+ "25": {
+  "desc": "masterVol",
+  "id": 25,
+  "overridden": true,
+  "value": 0.5
+ },
+ "26": {
+  "desc": "pitchModOsc",
+  "id": 26,
+  "overridden": false,
+  "value": 0.0
+ },
+ "27": {
+  "desc": "pitchTrack",
+  "id": 27,
+  "overridden": true,
+  "value": 0.0
+ },
+ "28": {
+  "desc": "transOsc2",
+  "id": 28,
+  "overridden": false,
+  "value": 0.0
+ },
+ "29": {
+  "desc": "transOsc3",
+  "id": 29,
+  "overridden": false,
+  "value": 0.0
+ },
+ "30": {
+  "desc": "wave1ModAmm",
+  "id": 30,
+  "overridden": true,
+  "value": 0.0
+ },
+ "31": {
+  "desc": "wave2ModAmm",
+  "id": 31,
+  "overridden": true,
+  "value": 0.0
+ },
+ "32": {
+  "desc": "wave3ModAmm",
+  "id": 32,
+  "overridden": true,
+  "value": 0.0
+ },
+ "33": {
+  "desc": "waveLFO1",
+  "id": 33,
+  "overridden": true,
+  "value": 0.0
+ },
+ "34": {
+  "desc": "waveLFO2",
+  "id": 34,
+  "overridden": true,
+  "value": 0.0
+ },
+ "35": {
+  "desc": "wavePos1",
+  "id": 35,
+  "overridden": false,
+  "value": 0.0
+ },
+ "36": {
+  "desc": "wavePos2",
+  "id": 36,
+  "overridden": false,
+  "value": 0.0
+ },
+ "37": {
+  "desc": "wavePos3",
+  "id": 37,
+  "overridden": false,
+  "value": 0.0
+ },
+ "38": {
+  "desc": "waveSel1",
+  "id": 38,
+  "overridden": false,
+  "value": 0.0
+ },
+ "39": {
+  "desc": "waveSel2",
+  "id": 39,
+  "overridden": false,
+  "value": 0.0
+ },
+ "40": {
+  "desc": "waveSel3",
+  "id": 40,
+  "overridden": false,
+  "value": 0.0
+ }
+}

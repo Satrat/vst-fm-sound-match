@@ -1,6 +1,6 @@
 import spiegelib as spgl
 
-def generateDatasetMFCC(synth_path, synth_state='./synth_params/dexed_simple_fm.json'):
+def generateDatasetMFCC(synth_path, synth_state='./synth_params/dexed_simple_fm.json', train_size=10000, test_size=1000):
     synth = spgl.synth.SynthVST(synth_path, note_length_secs=1.0, render_length_secs=1.0)
     synth.load_state(synth_state)
 
@@ -9,8 +9,8 @@ def generateDatasetMFCC(synth_path, synth_state='./synth_params/dexed_simple_fm.
                                   output_folder="./data_simple_FM_mfcc",
                                   scale=True)
 
-    generator.generate(10000, file_prefix="train_")
-    generator.generate(1000, file_prefix="test_")
+    generator.generate(train_size, file_prefix="train_")
+    generator.generate(test_size, file_prefix="test_")
     generator.save_scaler('data_scaler.pkl')
 
     return features
