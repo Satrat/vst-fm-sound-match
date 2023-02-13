@@ -60,10 +60,6 @@ def trainLSTMPlusPlus():
     testFeatures = np.load('./data_simple_FM_mfcc/test_features.npy')
     testParams = np.load('./data_simple_FM_mfcc/test_patches.npy')
 
-    # Flatten feature time slices
-    trainFeatures = trainFeatures.reshape(trainFeatures.shape[0], -1)
-    testFeatures = testFeatures.reshape(testFeatures.shape[0], -1)
-
     # Setup callbacks for trainings
     logger = spgl.estimator.TFEpochLogger()
     earlyStopping = tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=10)
