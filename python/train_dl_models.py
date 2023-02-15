@@ -1,12 +1,14 @@
 import spiegelib as spgl
 import numpy as np
 import tensorflow as tf
+import os
+import json
 
-def trainMLP():
-    trainFeatures = np.load('./data_simple_FM_mfcc/train_features.npy')
-    trainParams = np.load('./data_simple_FM_mfcc/train_patches.npy')
-    testFeatures = np.load('./data_simple_FM_mfcc/test_features.npy')
-    testParams = np.load('./data_simple_FM_mfcc/test_patches.npy')
+def trainMLP(output_folder, epochs=100):
+    trainFeatures = np.load(os.path.join(output_folder, 'train_features.npy'))
+    trainParams = np.load(os.path.join(output_folder, 'train_patches.npy'))
+    testFeatures = np.load(os.path.join(output_folder, 'test_features.npy'))
+    testParams = np.load(os.path.join(output_folder, 'test_patches.npy'))
 
     # Flatten feature time slices
     trainFeatures = trainFeatures.reshape(trainFeatures.shape[0], -1)
@@ -26,15 +28,18 @@ def trainMLP():
     mlp.add_testing_data(testFeatures, testParams)
     mlp.model.summary()
 
-    mlp.fit(epochs=100)
-    mlp.save_model('./saved_models/simple_fm_mlp.h5')
-    logger.plot()
+    mlp.fit(epochs=epochs)
+    mlp.save_model(os.path.join(output_folder, 'simple_fm_mlp.h5'))
 
-def trainLSTM():
-    trainFeatures = np.load('./data_simple_FM_mfcc/train_features.npy')
-    trainParams = np.load('./data_simple_FM_mfcc/train_patches.npy')
-    testFeatures = np.load('./data_simple_FM_mfcc/test_features.npy')
-    testParams = np.load('./data_simple_FM_mfcc/test_patches.npy')
+    _, plot_data = logger.get_plotting_data()
+    with open(os.path.join(output_folder, "logger.json"), "w") as outfile:
+        json.dump(plot_data, outfile)
+
+def trainLSTM(output_folder, epochs=100):
+    trainFeatures = np.load(os.path.join(output_folder, 'train_features.npy'))
+    trainParams = np.load(os.path.join(output_folder, 'train_patches.npy'))
+    testFeatures = np.load(os.path.join(output_folder, 'test_features.npy'))
+    testParams = np.load(os.path.join(output_folder, 'test_patches.npy'))
 
     # Setup callbacks for trainings
     logger = spgl.estimator.TFEpochLogger()
@@ -48,17 +53,19 @@ def trainLSTM():
     lstm.add_testing_data(testFeatures, testParams)
     lstm.model.summary()
 
-    lstm.fit(epochs=100)
+    lstm.fit(epochs=epochs)
 
-    lstm.save_model('./saved_models/simple_fm_lstm.h5')
-    logger.plot()
+    lstm.save_model(os.path.join(output_folder, 'simple_fm_lstm.h5'))
 
-def trainLSTMPlusPlus():
+    _, plot_data = logger.get_plotting_data()
+    with open(os.path.join(output_folder, "logger.json"), "w") as outfile:
+        json.dump(plot_data, outfile)
 
-    trainFeatures = np.load('./data_simple_FM_mfcc/train_features.npy')
-    trainParams = np.load('./data_simple_FM_mfcc/train_patches.npy')
-    testFeatures = np.load('./data_simple_FM_mfcc/test_features.npy')
-    testParams = np.load('./data_simple_FM_mfcc/test_patches.npy')
+def trainBiLSTM(output_folder, epochs=100, highway_layers=6):
+    trainFeatures = np.load(os.path.join(output_folder, 'train_features.npy'))
+    trainParams = np.load(os.path.join(output_folder, 'train_patches.npy'))
+    testFeatures = np.load(os.path.join(output_folder, 'test_features.npy'))
+    testParams = np.load(os.path.join(output_folder, 'test_patches.npy'))
 
     # Setup callbacks for trainings
     logger = spgl.estimator.TFEpochLogger()
@@ -67,13 +74,16 @@ def trainLSTMPlusPlus():
     bi_lstm = spgl.estimator.HwyBLSTM(trainFeatures.shape[-2:],
                                     trainParams.shape[-1],
                                     callbacks=[logger, earlyStopping],
-                                    highway_layers=6)
+                                    highway_layers=highway_layers)
 
     bi_lstm.add_training_data(trainFeatures, trainParams)
     bi_lstm.add_testing_data(testFeatures, testParams)
     bi_lstm.model.summary()
 
-    bi_lstm.fit(epochs=100)
+    bi_lstm.fit(epochs=epochs)
 
-    bi_lstm.save_model('./saved_models/simple_fm_bi_lstm.h5')
-    logger.plot()
+    bi_lstm.save_model(os.path.join(output_folder, 'simple_fm_bi_lstm.h5'))
+    
+    _, plot_data = logger.get_plotting_data()
+    with open(os.path.join(output_folder, "logger.json"), "w") as outfile:
+        json.dump(plot_data, outfile)
