@@ -4,14 +4,11 @@ __pycache__/
 *$py.class
 
 # Data
-python/data_simple_FM_mfcc/
-python/data_simple_FM_stft/
-python/saved_models
-python/evaluation
-python/synth_params
 data_simple_fm_mfcc/
 data_simple_fm_stft/
 evaluation/
+graphs/
+python/runs/
 *.zip
 
 # C extensions
