@@ -32,8 +32,8 @@ def trainMLP(output_folder, epochs=100):
     mlp.save_model(os.path.join(output_folder, 'simple_fm_mlp.h5'))
 
     _, plot_data = logger.get_plotting_data()
-    with open(os.path.join(output_folder, "logger.json"), "w") as outfile:
-        json.dump(plot_data, outfile)
+    with open(os.path.join(output_folder, "mlp_logger.json"), "w") as outfile:
+        json.dump(plot_data, outfile, indent=4)
 
 def trainLSTM(output_folder, epochs=100):
     trainFeatures = np.load(os.path.join(output_folder, 'train_features.npy'))
@@ -58,8 +58,8 @@ def trainLSTM(output_folder, epochs=100):
     lstm.save_model(os.path.join(output_folder, 'simple_fm_lstm.h5'))
 
     _, plot_data = logger.get_plotting_data()
-    with open(os.path.join(output_folder, "logger.json"), "w") as outfile:
-        json.dump(plot_data, outfile)
+    with open(os.path.join(output_folder, "lstm_logger.json"), "w") as outfile:
+        json.dump(plot_data, outfile, indent=4)
 
 def trainBiLSTM(output_folder, epochs=100, highway_layers=6):
     trainFeatures = np.load(os.path.join(output_folder, 'train_features.npy'))
@@ -74,6 +74,7 @@ def trainBiLSTM(output_folder, epochs=100, highway_layers=6):
     bi_lstm = spgl.estimator.HwyBLSTM(trainFeatures.shape[-2:],
                                     trainParams.shape[-1],
                                     callbacks=[logger, earlyStopping],
+                                    lstm_size=512,
                                     highway_layers=highway_layers)
 
     bi_lstm.add_training_data(trainFeatures, trainParams)
@@ -85,5 +86,5 @@ def trainBiLSTM(output_folder, epochs=100, highway_layers=6):
     bi_lstm.save_model(os.path.join(output_folder, 'simple_fm_bi_lstm.h5'))
     
     _, plot_data = logger.get_plotting_data()
-    with open(os.path.join(output_folder, "logger.json"), "w") as outfile:
-        json.dump(plot_data, outfile)
+    with open(os.path.join(output_folder, "bi_lstm_logger.json"), "w") as outfile:
+        json.dump(plot_data, outfile, indent=4)

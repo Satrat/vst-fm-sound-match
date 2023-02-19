@@ -8,19 +8,14 @@ def configWTSynth(synth_path, synth_state):
         (0, 0.01), #ampAttack  Fix to 30ms
         (3, 0.01), #ampRelease Fix to 30ms
         (5, 0.478), # bpm Fix to 120
-        (6, 0.0), # clipDist none
+        (9, 0.0), # driftOsc no pitch drift
         (27, 0.0), # pitchTrack none
         (22, 0.0), #levelPinkNoise no noise
-        (25, 0.5), #masterVol midpoint
-        #(2, 0.0), # ampMod no amplitude modulation
-        #(10, 0.5), # filterAmmLFO1 filter at 0Hz
-        #(16, 0.0), # freqLFO1 none 
-        #(17, 0.0), # freqLFO2 none
-        #(30, 0.0), # wave1ModAmm none
-        #(31, 0.0), # wave2ModAmm none
-        #(32, 0.0), # wave3ModAmm none
-        #(33, 0.0), # waveLFO1 default wave
-        #(34, 0.0) # waveLFO2 default wave
+        (25, 1.0), #masterVol maximum
+        (26, 0.0), #pitchModOsc none
+        (2, 0.0), # ampMod no amplitude modulation
+        (17, 0.0), # freqLFO2 none
+        (34, 0.0) # waveLFO2 default wave
     ]
 
     # Set overridden parameters in synth
